@@ -1,0 +1,28 @@
+<h2>Por Currency</h2>
+<hr>
+
+
+<div class="row">
+  <div class="col text-center">
+    <!-- SearchBox -->
+    <button *ngFor="let currency of currencies"
+      class="btn mx-2"
+      [ngClass]="{ 'btn-outline-primary': selectedCurrency === currency }"
+      (click)="searchByCurrency(currency)"
+    >
+      {{ currency }}
+    </button>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
+    <countries-table [countries]="countries" ></countries-table>
+  </div>
+</div>
+
